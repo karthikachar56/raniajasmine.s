@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rania Jasmine S | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti for interactive rewards -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            950: '#060814',
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                        },
+                        cyber: {
+                            cyan: '#06b6d4',
+                            magenta: '#ec4899',
+                            violet: '#8b5cf6',
+                            emerald: '#10b981',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #060814;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .neon-border {
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.1);
+        }
+        .neon-border:hover {
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+        }
+        .neon-border-magenta {
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.1);
+        }
+        .neon-border-magenta:hover {
+            border-color: rgba(236, 72, 153, 0.6);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.25);
+        }
+        .glassmorphism {
+            background: rgba(11, 15, 25, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-neon-cyan {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+        .text-neon-magenta {
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060814;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        /* Style adjustments for PDF printing */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-layout {
+                display: block !important;
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-cyber-cyan/30 selection:text-white">
+
+    <!-- Glowing Vector Orbs background -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-cyber-cyan/10 blur-[130px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-cyber-violet/10 blur-[150px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] right-[20%] w-[35vw] h-[35vw] rounded-full bg-cyber-magenta/5 blur-[120px] animate-pulse-slow" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glassmorphism border-b border-white/5 no-print transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyber-cyan via-cyber-violet to-cyber-magenta flex items-center justify-center font-bold text-white text-lg shadow-lg">
+                        RJ
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-lg sm:text-xl tracking-wide bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">Rania Jasmine</span>
+                        <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-[9px] font-mono tracking-widest bg-cyber-cyan/20 border border-cyber-cyan/30 rounded text-cyber-cyan uppercase">AI Tinkerer</span>
+                    </div>
+                </div>
+                
+                <!-- Navigation links -->
+                <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                    <a href="#about" class="text-xs lg:text-sm font-medium text-slate-300 hover:text-cyber-cyan transition-colors">About</a>
+                    <a href="#projects" class="text-xs lg:text-sm font-medium text-slate-300 hover:text-cyber-cyan transition-colors">Projects</a>
+                    <a href="#skills" class="text-xs lg:text-sm font-medium text-slate-300 hover:text-cyber-cyan transition-colors">Skills</a>
+                    <a href="#bot" class="text-xs lg:text-sm font-medium text-slate-300 hover:text-cyber-cyan transition-colors">Chat Bot</a>
+                    <a href="#contact" class="text-xs lg:text-sm font-medium text-slate-300 hover:text-cyber-cyan transition-colors">Contact</a>
+                </nav>
+
+                <!-- Navigation Action Buttons -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="togglePrintView()" class="flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-xl bg-slate-900 border border-white/10 hover:border-cyber-cyan/30 transition-all text-slate-200">
+                        <i class="fa-solid fa-print"></i> PDF CV Mode
+                    </button>
+                    <a href="https://github.com/RaniaJasmine" target="_blank" class="w-9 h-9 rounded-xl bg-slate-900 flex items-center justify-center border border-white/5 hover:text-cyber-cyan hover:border-cyber-cyan/30 transition-all text-slate-400">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu Toggle button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-400 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/5 transition-all">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-dark-950/95 backdrop-blur-lg">
+            <div class="px-2 pt-2 pb-4 space-y-1">
+                <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-cyber-cyan hover:bg-white/5">About</a>
+                <a href="#projects" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-cyber-cyan hover:bg-white/5">Projects</a>
+                <a href="#skills" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-cyber-cyan hover:bg-white/5">Skills</a>
+                <a href="#bot" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-cyber-cyan hover:bg-white/5">Rania Bot</a>
+                <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-cyber-cyan hover:bg-white/5">Contact</a>
+                <div class="pt-4 pb-2 border-t border-white/5 px-3 flex gap-2">
+                    <button onclick="togglePrintView()" class="flex-1 flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded-xl bg-slate-800 border border-white/10 text-slate-200">
+                        <i class="fa-solid fa-print"></i> PDF CV Mode
+                    </button>
+                    <a href="https://github.com/RaniaJasmine" target="_blank" class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                        <i class="fa-brands fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 no-print">
+        
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[70vh] mb-24">
+            <!-- Left Info column -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyber-cyan/10 text-cyber-cyan border border-cyber-cyan/20 text-xs font-mono">
+                    <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-ping"></span>
+                    Winner: Codeathon '26 AI Industrial Safety
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-white">
+                    Hi, I'm <span class="bg-gradient-to-r from-cyber-cyan via-cyber-violet to-cyber-magenta bg-clip-text text-transparent">Rania Jasmine S</span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl font-bold text-slate-300">
+                    CS Undergrad (AI & Data Science) & Full-Stack Builder
+                </p>
+                
+                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    1st-year student at <strong class="text-white">Sapthagiri NPS University</strong> hacking at the intersection of computer vision, deep language models, and web architecture. Passionate about AI for social good, production-ready interfaces, and modular backends.
+                </p>
+
+                <!-- Core Stats grid -->
+                <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 pt-2 text-left">
+                    <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5">
+                        <span class="block text-2xl font-extrabold text-cyber-cyan">8.09</span>
+                        <span class="text-[10px] text-slate-400 uppercase font-semibold">SGPA Score</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5">
+                        <span class="block text-2xl font-extrabold text-cyber-magenta">1st</span>
+                        <span class="text-[10px] text-slate-400 uppercase font-semibold">AI Codeathon</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-900/60 border border-white/5">
+                        <span class="block text-2xl font-extrabold text-cyber-violet">4+</span>
+                        <span class="text-[10px] text-slate-400 uppercase font-semibold">AI / Web Projects</span>
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <a href="#projects" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-violet hover:from-cyber-cyan/90 hover:to-cyber-violet/90 text-white font-semibold transition-all shadow-lg shadow-cyber-cyan/20 hover:scale-[1.02]">
+                        View Projects <i class="fa-solid fa-folder-open"></i>
+                    </a>
+                    <a href="#bot" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/10 text-white font-semibold transition-all hover:scale-[1.02]">
+                        Talk to AI Bot <i class="fa-solid fa-robot"></i>
+                    </a>
+                </div>
+
+                <!-- Direct social row -->
+                <div class="flex items-center justify-center lg:justify-start gap-5 pt-4 text-slate-400">
+                    <a href="https://github.com/RaniaJasmine" target="_blank" class="hover:text-cyber-cyan transition-colors text-xl" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/rania-jasmine-s" target="_blank" class="hover:text-cyber-cyan transition-colors text-xl" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:raniajasmine740@gmail.com" class="hover:text-cyber-cyan transition-colors text-xl" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <span class="h-4 w-px bg-white/10"></span>
+                    <a href="tel:+918884315186" class="hover:text-cyber-cyan transition-colors text-xs font-mono"><i class="fa-solid fa-phone"></i> +91 88843 15186</a>
+                </div>
+            </div>
+
+            <!-- Right Visual column (Interactive Code HUD / Portrait frame with Toggle tabs) -->
+            <div class="lg:col-span-5 flex flex-col items-center">
+                <!-- Dual Showcase Tab Controller -->
+                <div class="flex items-center gap-2 bg-slate-950/80 p-1.5 rounded-2xl border border-white/5 mb-4 shadow-xl">
+                    <button onclick="toggleHeroView('portrait')" id="btn-hero-portrait" class="px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all bg-cyber-cyan text-black shadow-md shadow-cyber-cyan/10">
+                        <i class="fa-solid fa-user-tie"></i> Profile Photo
+                    </button>
+                    <button onclick="toggleHeroView('code')" id="btn-hero-code" class="px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-code"></i> Developer Code
+                    </button>
+                </div>
+
+                <div class="relative w-72 h-[400px] sm:w-80 sm:h-[440px] lg:w-[360px] lg:h-[480px]">
+                    <!-- Rotating backdrop ring -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyber-cyan via-cyber-violet to-cyber-magenta opacity-30 blur-xl animate-pulse"></div>
+                    
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyber-cyan to-cyber-magenta p-[1.5px] shadow-2xl">
+                        
+                        <!-- PORTRAIT SHOWCASE -->
+                        <div id="hero-portrait-view" class="w-full h-full rounded-[23px] bg-[#070913] relative overflow-hidden flex flex-col justify-between transition-all duration-300">
+                            <!-- Floating Badge -->
+                            <div class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur border border-cyber-cyan/30 text-[10px] font-mono text-cyber-cyan uppercase font-bold tracking-wider">
+                                <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan animate-pulse"></span>
+                                Active Developer
+                            </div>
+
+                            <!-- Floating EETIRP Badge -->
+                            <div class="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur border border-cyber-magenta/30 text-[10px] font-mono text-cyber-magenta uppercase font-bold tracking-wider">
+                                EETIRP LIMITED
+                            </div>
+
+                            <!-- Portrait Image Element with fallback fallback on error -->
+                            <div class="w-full h-full relative overflow-hidden">
+                                <img src="WhatsApp Image 2026-06-11 at 7.19.36 PM.jpeg" 
+                                     alt="Rania Jasmine S" 
+                                     class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" 
+                                     onerror="this.onerror=null; this.src='profile.jpeg'; this.addEventListener('error', function() { this.outerHTML = `<div class=\'w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500 p-8 text-center\'><i class=\'fa-regular fa-user text-5xl text-cyber-cyan mb-4 animate-pulse\'></i><p class=\'text-xs font-mono text-slate-300\'>Portrait Placeholder</p><p class=\'text-[10px] text-slate-500 mt-2 leading-relaxed\'>Rename photo as <b>profile.jpeg</b> and place in repo folder to render your professional portrait!</p></div>` })" />
+                                
+                                <!-- Subtle premium glass gradient overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#070913] via-[#070913]/10 to-transparent"></div>
+                            </div>
+
+                            <!-- Profile metadata details underneath the picture overlay -->
+                            <div class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-[#070913] via-[#070913]/90 to-transparent pt-10 text-center">
+                                <h3 class="text-base font-bold text-white tracking-wide">Rania Jasmine S</h3>
+                                <p class="text-xs text-cyber-cyan font-mono mt-0.5">CSE (AI & Data Science)</p>
+                                <p class="text-[10px] text-slate-400 mt-1 italic">Officer & full-stack builder at EETIRP</p>
+                            </div>
+                        </div>
+
+                        <!-- CODE VISUAL HUD VIEW (Initially hidden) -->
+                        <div id="hero-code-view" class="hidden w-full h-full rounded-[23px] bg-[#070913] p-6 relative overflow-hidden flex flex-col justify-between font-mono text-xs text-slate-300 transition-all duration-300">
+                            
+                            <!-- Header Bar -->
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                                </div>
+                                <span class="text-[10px] text-slate-500">tinker_profile.py</span>
+                            </div>
+
+                            <!-- Middle Section (Simulated Code) -->
+                            <div class="space-y-3 py-4 flex-grow overflow-y-auto">
+                                <p class="text-cyan-400">class <span class="text-yellow-300">RaniaJasmine</span>:</p>
+                                <p class="pl-4 text-slate-400">""" 1st-Year CSE AI & Data Science """</p>
+                                <p class="pl-4">def __init__(self):</p>
+                                <p class="pl-8">self.role = <span class="text-green-400">"Full-stack AI Builder"</span></p>
+                                <p class="pl-8">self.gpa = <span class="text-purple-400">8.09</span></p>
+                                <p class="pl-8">self.passion = <span class="text-green-400">"AI for Social Good"</span></p>
+                                <p class="pl-8">self.hobbies = [<span class="text-green-400">"Basketball"</span>, <span class="text-green-400">"Athletics"</span>]</p>
+                                <p class="pl-4">def handle_input(self, gesture):</p>
+                                <p class="pl-8 text-pink-400">if gesture == <span class="text-green-400">"EMERGENCY"</span>:</p>
+                                <p class="pl-12 text-slate-300">self.broadcast_emergency_webrtc()</p>
+                                <p class="pl-12 text-slate-300">self.trigger_groq_llama33_agent()</p>
+                                <p class="pl-8">return <span class="text-yellow-300">"Safety Response Active"</span></p>
+                            </div>
+
+                            <!-- Interactive Button Overlay inside the HUD -->
+                            <div class="border-t border-white/10 pt-3 flex items-center justify-between">
+                                <span class="text-[10px] text-slate-500">Click to compile:</span>
+                                <button onclick="triggerConfettiSparkle()" class="px-3 py-1 rounded bg-cyber-cyan/10 hover:bg-cyber-cyan/20 border border-cyber-cyan/30 text-cyber-cyan text-[10px] font-bold tracking-wider uppercase transition-all">
+                                    <i class="fa-solid fa-bolt mr-1"></i> Run Code
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Education Section -->
+        <section id="about" class="py-16 border-t border-white/5 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Education & Timeline</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-cyan to-cyber-magenta mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-400 text-sm sm:text-base">
+                    Building a firm foundational knowledge in computer engineering, algorithmic thinking, and structural object programming.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Academic timeline -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-graduation-cap text-cyber-cyan"></i> Educational Path
+                    </h3>
+
+                    <!-- Degree -->
+                    <div class="relative pl-8 border-l-2 border-cyber-cyan/20 pb-4">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-950 border-2 border-cyber-cyan flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span>
+                        </div>
+                        <div class="glassmorphism p-5 rounded-2xl relative transition-all hover:border-cyber-cyan/30 hover:translate-x-1 duration-300">
+                            <span class="absolute top-4 right-4 text-[9px] font-mono tracking-widest bg-emerald-500/10 text-emerald-400 px-2.5 py-0.5 rounded-full">2025 - PRESENT</span>
+                            <h4 class="font-bold text-lg text-white">B.E. in Computer Science Engineering (AI & Data Science)</h4>
+                            <p class="text-sm font-medium text-cyber-cyan mt-1">Sapthagiri NPS University, Bengaluru</p>
+                            <p class="text-xs text-slate-400 mt-2"><i class="fa-solid fa-location-dot mr-1"></i> Oct 2025 - Present (2nd Semester) | Expected 2029</p>
+                            <div class="mt-3 flex items-center justify-between text-xs bg-white/5 p-2 rounded-lg border border-white/5">
+                                <span class="text-slate-400">Academic Standing:</span>
+                                <span class="font-bold text-cyber-cyan font-mono">SGPA: 8.09 / 10</span>
+                            </div>
+                            <div class="mt-3">
+                                <span class="text-xs font-semibold text-slate-300 block mb-1">Key Ongoing Coursework:</span>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">Data Structures & Algorithms</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">OOP</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">Web Technologies</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">DBMS</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">Python Programming</span>
+                                    <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-300 border border-white/5">Math for Computing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pre-University -->
+                    <div class="relative pl-8 border-l-2 border-cyber-cyan/20 pb-4">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-950 border-2 border-cyber-violet flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-violet"></span>
+                        </div>
+                        <div class="glassmorphism p-5 rounded-2xl relative transition-all hover:border-cyber-violet/30 hover:translate-x-1 duration-300">
+                            <span class="absolute top-4 right-4 text-[9px] font-mono tracking-widest bg-slate-500/20 text-slate-300 px-2 py-0.5 rounded">CLASS XII</span>
+                            <h4 class="font-bold text-lg text-white">Pre-University Science</h4>
+                            <p class="text-sm font-medium text-cyber-violet mt-1">Mount Carmel PU College, Bengaluru</p>
+                            <p class="text-xs text-slate-400 mt-2"><i class="fa-solid fa-calendar mr-1.5"></i> Completed March 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Class X -->
+                    <div class="relative pl-8 border-l-2 border-cyber-cyan/20">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-dark-950 border-2 border-cyber-magenta flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyber-magenta"></span>
+                        </div>
+                        <div class="glassmorphism p-5 rounded-2xl relative transition-all hover:border-cyber-magenta/30 hover:translate-x-1 duration-300">
+                            <span class="absolute top-4 right-4 text-[9px] font-mono tracking-widest bg-cyber-magenta/10 text-cyber-magenta px-2 py-0.5 rounded">CLASS X</span>
+                            <h4 class="font-bold text-lg text-white">SSLC Matriculation</h4>
+                            <p class="text-sm font-medium text-cyber-magenta mt-1">Nirmala Rani High School, Bengaluru</p>
+                            <p class="text-xs text-slate-400 mt-2"><i class="fa-solid fa-calendar mr-1.5"></i> March 2023</p>
+                            <div class="mt-3 flex items-center justify-between text-xs bg-white/5 p-2 rounded-lg border border-white/5">
+                                <span class="text-slate-400">Cumulative Score:</span>
+                                <span class="font-bold text-cyber-magenta font-mono">90.08%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right profile highlighting column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-award text-cyber-magenta"></i> Honors & Leadership
+                    </h3>
+
+                    <div class="glassmorphism p-6 rounded-2xl space-y-4">
+                        <!-- Award 1 -->
+                        <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-cyber-cyan/20 transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">1st Place - Codeathon '26</h4>
+                                <p class="text-xs text-slate-400 mt-1">Defeated 35+ competing development teams on the theme "AI for Industrial Safety".</p>
+                            </div>
+                        </div>
+
+                        <!-- Award 2 -->
+                        <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-cyber-magenta/20 transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-cyber-magenta/10 text-cyber-magenta flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-basketball"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Basketball Champion</h4>
+                                <p class="text-xs text-slate-400 mt-1">1st Place in University Basketball - SNPSU Fresher's Sports Meet 2026.</p>
+                            </div>
+                        </div>
+
+                        <!-- Leadership Role -->
+                        <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-cyber-violet/20 transition-all">
+                            <div class="w-10 h-10 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">TEDxSNPSU Core Member</h4>
+                                <p class="text-xs text-slate-400 mt-1">Selected via a highly competitive interview to manage event logistics & speaker coordination.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glassmorphism p-6 rounded-2xl">
+                        <h4 class="font-bold text-sm text-white mb-2">Interests & Hobbies</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-white/5">Basketball</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-white/5">Athletics</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-white/5">UI/UX Layout Design</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-300 border border-white/5">AI for Social Good</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Grid Section -->
+        <section id="projects" class="py-16 border-t border-white/5 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Projects & Hackathons</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-cyan to-cyber-magenta mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-400 text-sm sm:text-base">
+                    Realizing complex theories through robust code solutions. Defeating safety hazards, predicting market bottlenecks, and crafting sleek React dashboards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Project 1: Gesture Shield -->
+                <div class="glassmorphism rounded-2xl overflow-hidden flex flex-col justify-between hover:border-cyber-cyan/30 border border-white/5 transition-all duration-300 group">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-cyan/10 text-cyber-cyan text-[10px] font-mono tracking-widest font-bold uppercase">1st Place Codeathon '26</span>
+                            <span class="text-xs text-slate-500 font-mono">April 2026</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-cyber-cyan transition-colors">Gesture Shield</h3>
+                        <p class="text-sm text-cyan-400/95 font-semibold">Industrial Sign Language Translator & Broadcast Network</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A real-time translation system engineered using <strong>MediaPipe hand tracking (21 landmarks)</strong>, with 90% accuracy and less than 200ms latency. Detects 5 industrial safety signs (FIRE, STOP, EMERGENCY, PEACE, POINT).
+                        </p>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-white block">Key Architectures:</span>
+                            <ul class="text-xs text-slate-400 list-disc pl-5 space-y-1">
+                                <li><strong>Flask backend</strong> with modular Socket.IO rooms allowing company network isolation and emergency overrides.</li>
+                                <li><strong>Groq API (Llama 3.3)</strong> chatbot companion for guiding hazardous conditions + WebRTC emergency streaming.</li>
+                                <li>Solves critical warehouse industrial safety gap for hearing-impaired workers.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white/[0.02] border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Python Flask</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">MediaPipe</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Socket.IO</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Llama 3.3</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">WebRTC</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI Logistics Supply Chain -->
+                <div class="glassmorphism rounded-2xl overflow-hidden flex flex-col justify-between hover:border-cyber-magenta/30 border border-white/5 transition-all duration-300 group">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-magenta/10 text-cyber-magenta text-[10px] font-mono tracking-widest font-bold uppercase">Innovitus (Solo Hack)</span>
+                            <span class="text-xs text-slate-500 font-mono">Feb 2026</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-cyber-magenta transition-colors">Logistics Prophet</h3>
+                        <p class="text-sm text-pink-400/95 font-semibold">AI Logistics & Supply Chain Predictive Optimizer</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Built independently for the Innovitus Hackathon AI logistics track. This platform leverages Facebook's Prophet algorithms to forecast demand metrics, keeping the Mean Absolute Percentage Error (MAPE) below 12%.
+                        </p>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-white block">Key Architectures:</span>
+                            <ul class="text-xs text-slate-400 list-disc pl-5 space-y-1">
+                                <li>Interactive supplier delay scenario simulation dashboards built on <strong>Streamlit</strong>.</li>
+                                <li>Tracks and graphs complex supply chain delivery bottlenecks & cost efficiency KPIs on the fly.</li>
+                                <li>Fully responsive predictive forecasting models leveraging Pandas data structures.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white/[0.02] border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Prophet</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Pandas</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Streamlit</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Python</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Weather Flow Dashboard -->
+                <div class="glassmorphism rounded-2xl overflow-hidden flex flex-col justify-between hover:border-cyber-violet/30 border border-white/5 transition-all duration-300 group">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded-full bg-cyber-violet/10 text-cyber-violet text-[10px] font-mono tracking-widest font-bold uppercase">Solo Project</span>
+                            <span class="text-xs text-slate-500 font-mono">March 2026</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-cyber-violet transition-colors">Weather Flow</h3>
+                        <p class="text-sm text-purple-400/95 font-semibold">Asynchronous Weather Analysis Engine</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Highly scalable, responsive React.js frontend incorporating live public API fetches. Structured around highly modular component guidelines.
+                        </p>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-white block">Key Architectures:</span>
+                            <ul class="text-xs text-slate-400 list-disc pl-5 space-y-1">
+                                <li>Lighthouse evaluation score consistently averaging 98%.</li>
+                                <li>Dynamic weather-state layout customization utilizing responsive Tailwind configurations.</li>
+                                <li>Fully deployed and accessible in production on Render servers.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white/[0.02] border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">React.js</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Tailwind CSS</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">REST APIs</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Render</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Integrated Campus Event Calendar -->
+                <div class="glassmorphism rounded-2xl overflow-hidden flex flex-col justify-between hover:border-emerald-500/30 border border-white/5 transition-all duration-300 group">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-mono tracking-widest font-bold uppercase">SaptaHacks Hackathon</span>
+                            <span class="text-xs text-slate-500 font-mono">Jan 2026</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">SaptaEvents Portal</h3>
+                        <p class="text-sm text-emerald-400/95 font-semibold">User-Centric Platform & Face Attendance Sandbox</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A cross-functional campus events organizer built with emphasis on visual aesthetics, accessibility, and interactive design.
+                        </p>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-white block">Key Architectures:</span>
+                            <ul class="text-xs text-slate-400 list-disc pl-5 space-y-1">
+                                <li>Designed high-fidelity mockups & transitions on Figma and Framer.</li>
+                                <li>Integrated face-recognition concepts for lightning-fast student event attendance check-ins.</li>
+                                <li>Optimized overall campus event scheduling discoverability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white/[0.02] border-t border-white/5 flex flex-wrap gap-2">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Framer</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Figma Layout</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Interactive UI</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">FaceRec Concept</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical & Professional Skills section -->
+        <section id="skills" class="py-16 border-t border-white/5 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Skill Mapping Matrix</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-cyan to-cyber-magenta mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-400 text-sm sm:text-base">
+                    From deep back-end logic to responsive frameworks, modern vector layouts, and real-time models.
+                </p>
+            </div>
+
+            <!-- Interative category tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button onclick="filterSkills('all')" class="skill-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-cyber-cyan text-black border border-cyber-cyan transition-all">All Skills</button>
+                <button onclick="filterSkills('ai-data')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-white/5 hover:border-cyber-cyan/30 transition-all">Data & AI</button>
+                <button onclick="filterSkills('backend')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-white/5 hover:border-cyber-cyan/30 transition-all">Backend Systems</button>
+                <button onclick="filterSkills('frontend')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-white/5 hover:border-cyber-cyan/30 transition-all">Frontend & UI</button>
+                <button onclick="filterSkills('workflow')" class="skill-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-white/5 hover:border-cyber-cyan/30 transition-all">AI Workflows & DevOps</button>
+            </div>
+
+            <!-- Skills grid -->
+            <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Skill Card 1: Groq & LLaMA 3.3 -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="ai-data">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center"><i class="fa-solid fa-brain"></i></div>
+                        <h4 class="font-bold text-white text-sm">Groq (Llama 3.3)</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Deploying blazing-fast LLM API pipelines for custom real-time support bots.</p>
+                </div>
+
+                <!-- Skill Card 2: Python / MediaPipe -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="ai-data">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center"><i class="fa-solid fa-eye"></i></div>
+                        <h4 class="font-bold text-white text-sm">MediaPipe / Vision</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Processing complex vector points and real-time hand-landmark recognition models.</p>
+                </div>
+
+                <!-- Skill Card 3: Pandas & Prophet -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="ai-data">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4 class="font-bold text-white text-sm">Pandas & Prophet</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Conducting predictive supply chain demand forecasting operations with Streamlit.</p>
+                </div>
+
+                <!-- Skill Card 4: Node.js / Express -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="backend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-brands fa-node-js"></i></div>
+                        <h4 class="font-bold text-white text-sm">Node.js</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Asynchronous backend logic architectures and RESTful API pipeline integration.</p>
+                </div>
+
+                <!-- Skill Card 5: Python Flask -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="backend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-brands fa-python"></i></div>
+                        <h4 class="font-bold text-white text-sm">Flask & Socket.IO</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Handling real-time client-to-server bi-directional channel rooms and emergency overrides.</p>
+                </div>
+
+                <!-- Skill Card 6: Supabase & Postgres -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="backend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
+                        <h4 class="font-bold text-white text-sm">Supabase & Postgres</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Structuring clean database relations, handling user authorization, and learning optimizations.</p>
+                </div>
+
+                <!-- Skill Card 7: React.js -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-magenta/10 text-cyber-magenta flex items-center justify-center"><i class="fa-brands fa-react"></i></div>
+                        <h4 class="font-bold text-white text-sm">React.js</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Engineering reactive client-side layouts using component hooks, custom states, and routing logic.</p>
+                </div>
+
+                <!-- Skill Card 8: WebRTC / Video Streaming -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-magenta/10 text-cyber-magenta flex items-center justify-center"><i class="fa-solid fa-video"></i></div>
+                        <h4 class="font-bold text-white text-sm">WebRTC Protocols</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Establishing instant peer-to-peer audio-video transfers and emergency feeds.</p>
+                </div>
+
+                <!-- Skill Card 9: Figma & Framer -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="frontend">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-magenta/10 text-cyber-magenta flex items-center justify-center"><i class="fa-brands fa-figma"></i></div>
+                        <h4 class="font-bold text-white text-sm">Figma & Framer</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Designing high-fidelity user-centered interfaces, wireframe pathways, and prototypes.</p>
+                </div>
+
+                <!-- Skill Card 10: Claude & Prompt Eng. -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="workflow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h4 class="font-bold text-white text-sm">AI Workflows</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Maximizing productivity utilizing Claude, Deepseek, Llama models, and advanced prompting.</p>
+                </div>
+
+                <!-- Skill Card 11: Git / GitHub / Render -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="workflow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-brands fa-github"></i></div>
+                        <h4 class="font-bold text-white text-sm">CI/CD & Deploy</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Controlling version changes via Git / GitHub and deploying applications directly on Render.</p>
+                </div>
+
+                <!-- Skill Card 12: Docker & AWS (learning) -->
+                <div class="skill-card glassmorphism p-5 rounded-2xl border border-white/5" data-category="workflow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-violet/10 text-cyber-violet flex items-center justify-center"><i class="fa-solid fa-server"></i></div>
+                        <h4 class="font-bold text-white text-sm">Docker & DevOps</h4>
+                    </div>
+                    <p class="text-xs text-slate-400">Studying modular infrastructure containment and basic AWS cloud foundations.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Conversational Chatbot (Rania Bot) -->
+        <section id="bot" class="py-16 border-t border-white/5 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-2.5 py-1 rounded bg-cyber-violet/15 text-cyber-violet text-xs font-mono font-bold tracking-widest uppercase">Quick Recruiter Assistant</span>
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mt-3">Interactive Profile Bot</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-cyan to-cyber-magenta mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-400 text-sm sm:text-base">
+                    Quickly evaluate Rania Jasmine's background, hackathon projects, and extracurricular leadership by querying her automated developer rep.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto glassmorphism rounded-3xl overflow-hidden border border-cyber-violet/20">
+                <!-- Chatbot Header -->
+                <div class="px-6 py-4 bg-slate-900 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyber-cyan to-cyber-violet flex items-center justify-center text-white">
+                            <i class="fa-solid fa-robot text-lg animate-bounce"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-white">Rania's Virtual Representative</h3>
+                            <span class="text-[9px] text-emerald-400 font-mono flex items-center gap-1.5 uppercase font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> LLM Mock Agent Active
+                            </span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-500">v1.0.2</span>
+                </div>
+
+                <!-- Chat Messages Body -->
+                <div id="chat-messages" class="p-6 h-80 overflow-y-auto space-y-4 bg-[#050711]/90">
+                    <!-- Bot Greeting -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs text-cyber-cyan shrink-0">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="p-3.5 rounded-2xl rounded-tl-none bg-slate-800/80 text-xs sm:text-sm text-slate-200 max-w-[80%] border border-white/5 leading-relaxed">
+                            Hello! I am Rania Jasmine's profile assistant. Ask me questions about her hackathon victories, her B.E. studies at Sapthagiri NPS University, her coding skills, or how to contact her! 🚀
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggested Query Prompts panel -->
+                <div class="p-4 bg-slate-900/40 border-t border-white/5 space-y-2">
+                    <span class="text-[9px] font-bold tracking-wider text-slate-500 uppercase block">Select a pre-programmed query:</span>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="sendBotPrompt('hackathon')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 hover:border-cyber-cyan/40 border border-white/5 text-slate-300 transition-all text-left">
+                            🏆 Details on Codeathon '26 Industrial Safety Victory?
+                        </button>
+                        <button onclick="sendBotPrompt('university')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 hover:border-cyber-cyan/40 border border-white/5 text-slate-300 transition-all text-left">
+                            🎓 Where does she study and what's her score?
+                        </button>
+                        <button onclick="sendBotPrompt('basketball')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 hover:border-cyber-cyan/40 border border-white/5 text-slate-300 transition-all text-left">
+                            🏀 Athletic Achievements & TEDx role?
+                        </button>
+                        <button onclick="sendBotPrompt('skills')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 hover:border-cyber-cyan/40 border border-white/5 text-slate-300 transition-all text-left">
+                            🛠️ What languages & frameworks does she master?
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom manual chat inputs -->
+                <form onsubmit="handleChatSubmit(event)" class="flex border-t border-white/5">
+                    <input type="text" id="chat-input" placeholder="Ask something (e.g., MediaPipe, Prophet, contact, email)..." class="flex-grow px-5 py-4 bg-slate-950 text-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-cyber-cyan placeholder-slate-500">
+                    <button type="submit" class="px-6 bg-slate-900 hover:bg-cyber-cyan hover:text-black transition-all flex items-center justify-center font-bold text-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Direct Contact Info Section -->
+        <section id="contact" class="py-16 border-t border-white/5 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Connect with Rania Jasmine</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-cyan to-cyber-magenta mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-slate-400 text-sm sm:text-base">
+                    Looking for a highly capable 1st-year computer science intern to tackle AI projects, data pipelines, or responsive frontend structures? Let's connect!
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto space-y-6">
+                <!-- Centered Direct Contact Directory -->
+                <div class="glassmorphism p-6 sm:p-8 rounded-3xl space-y-6">
+                    <h3 class="text-lg font-bold text-white text-center mb-4">Official Contact Channels</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Email Card -->
+                        <a href="mailto:raniajasmine740@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-cyber-cyan/30 transition-all group">
+                            <div class="w-10 h-10 rounded-xl bg-cyber-cyan/10 text-cyber-cyan flex items-center justify-center text-lg shrink-0 group-hover:bg-cyber-cyan group-hover:text-black transition-all">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[10px] text-slate-500 block">Personal Email</span>
+                                <span class="text-xs sm:text-sm font-semibold text-white truncate block">raniajasmine740@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <!-- Phone Card -->
+                        <a href="tel:+918884315186" class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-cyber-magenta/30 transition-all group">
+                            <div class="w-10 h-10 rounded-xl bg-cyber-magenta/10 text-cyber-magenta flex items-center justify-center text-lg shrink-0 group-hover:bg-cyber-magenta group-hover:text-white transition-all">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-[10px] text-slate-500 block">Phone Connection</span>
+                                <span class="text-xs sm:text-sm font-semibold text-white truncate block">+91 88843 15186</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Location details panel -->
+                    <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-cyber-violet/10 text-cyber-violet flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-500 block">Operational Location</span>
+                            <span class="text-xs sm:text-sm font-semibold text-white">Bengaluru, Karnataka, India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live CV Generation panel -->
+                <div class="p-6 rounded-3xl glassmorphism border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                    <div>
+                        <span class="text-xs text-slate-500 block">Need a formal, printable document format?</span>
+                        <span class="font-bold text-white text-sm block mt-0.5">Toggle Print-Ready CV Template</span>
+                    </div>
+                    <button onclick="togglePrintView()" class="w-full sm:w-auto px-6 py-3 text-xs font-semibold rounded-xl bg-gradient-to-r from-cyber-cyan/20 to-cyber-magenta/20 border border-cyber-cyan/40 hover:border-cyber-cyan text-cyber-cyan transition-all uppercase tracking-wider">
+                        <i class="fa-solid fa-print mr-1.5"></i> Open CV Mode
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PRINT-READY FORMAL DYNAMIC CV SECTION (Shown when print mode is active) -->
+    <section id="printable-cv-view" class="hidden max-w-4xl mx-auto p-8 my-8 bg-white text-black font-sans leading-relaxed relative print-layout">
+        <!-- Close button (no-print) -->
+        <button onclick="togglePrintView()" class="absolute top-4 right-4 no-print px-4 py-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-800 hover:bg-slate-200 transition-all font-semibold text-xs flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-left"></i> Exit PDF CV Mode
+        </button>
+
+        <!-- Header block -->
+        <div class="text-center pb-6 border-b-2 border-slate-300">
+            <h1 class="text-3xl font-extrabold tracking-wide uppercase">RANIA JASMINE S</h1>
+            <p class="text-sm font-semibold mt-1 italic text-slate-600">
+                1st-Year CS AI Undergrad & Full-Stack Builder
+            </p>
+            <p class="text-xs mt-2 text-slate-700">
+                Bengaluru, Karnataka, India | +91 88843 15186 | raniajasmine740@gmail.com
+            </p>
+            <p class="text-xs mt-1 text-slate-500 font-mono">
+                GitHub: github.com/RaniaJasmine | LinkedIn: linkedin.com/in/rania-jasmine-s
+            </p>
+        </div>
+
+        <!-- Section 1: Education -->
+        <div class="my-6">
+            <h2 class="text-base font-bold border-b-2 border-slate-300 pb-1 mb-2 tracking-wider uppercase text-slate-800">EDUCATION</h2>
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="font-bold text-sm">B.E., Computer Science Engineering (AI & Data Science)</h3>
+                    <p class="text-xs text-slate-700">Sapthagiri NPS University, Bengaluru</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Coursework: Data Structures & Algorithms, OOP, Database Management (DBMS), Web Technologies, Python, Computing Mathematics</p>
+                </div>
+                <div class="text-right shrink-0 ml-4">
+                    <span class="font-semibold text-xs">Oct 2025 - Present</span>
+                    <p class="text-xs font-bold text-emerald-600">SGPA: 8.09 / 10</p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-start mt-4">
+                <div>
+                    <h3 class="font-bold text-sm">Pre-University (Class XII)</h3>
+                    <p class="text-xs text-slate-700">Mount Carmel PU College, Bengaluru</p>
+                </div>
+                <div class="text-right shrink-0">
+                    <span class="font-semibold text-xs">Completed March 2025</span>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-start mt-4">
+                <div>
+                    <h3 class="font-bold text-sm">SSLC Matriculation (Class X)</h3>
+                    <p class="text-xs text-slate-700">Nirmala Rani High School, Bengaluru</p>
+                </div>
+                <div class="text-right shrink-0">
+                    <span class="font-semibold text-xs">March 2023</span>
+                    <p class="text-xs font-bold text-slate-700">90.08%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Projects & Hackathons -->
+        <div class="my-6">
+            <h2 class="text-base font-bold border-b-2 border-slate-300 pb-1 mb-2 tracking-wider uppercase text-slate-800">PROJECTS & HACKATHONS</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between font-bold text-xs text-slate-800">
+                        <span>Gesture Shield - Industrial Sign Language Translator</span>
+                        <span class="text-[10px] font-semibold text-slate-500">April 2026 (Codeathon Winner)</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed text-justify">
+                        Achieved 1st place out of 35+ development teams. Engineered a real-time translating algorithm using MediaPipe hand tracking (21 landmarks) boasting 90% accuracy and less than 200ms latency. Implemented a Python Flask backend with Socket.IO room networks and integrated Groq LLaMA 3.3 emergency chatbot broadcast systems.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between font-bold text-xs text-slate-800">
+                        <span>AI Logistics & Supply Chain Predictive Optimizer</span>
+                        <span class="text-[10px] font-semibold text-slate-500">Feb 2026 (Innovitus Individual)</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed text-justify">
+                        Crafted a demand forecasting pipeline using Facebook's Prophet framework with Mean Absolute Percentage Error (MAPE) kept below 12%. Visualized operational delay curves using Python Streamlit dashboards tracking supplier bottlenecks & KPIs.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between font-bold text-xs text-slate-800">
+                        <span>Weather Flow - Asynchronous Weather Dashboard</span>
+                        <span class="text-[10px] font-semibold text-slate-500">Mar 2026</span>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                        Constructed a modular React.js frontend connected to real-time weather APIs. Optimized client response rendering to achieve an average Lighthouse performance rating of 98%.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Technical Skills Matrix -->
+        <div class="my-6">
+            <h2 class="text-base font-bold border-b-2 border-slate-300 pb-1 mb-2 tracking-wider uppercase text-slate-800">TECHNICAL SKILLS</h2>
+            <div class="grid grid-cols-2 gap-4 text-xs">
+                <div>
+                    <p class="mb-1"><strong>Data & AI:</strong> Pandas, Facebook Prophet, Streamlit, MediaPipe, Groq AI (Llama 3.3)</p>
+                    <p class="mb-1"><strong>Backend development:</strong> Node.js, Python (Flask), Socket.IO, REST APIs</p>
+                    <p class="mb-1"><strong>Frontend & UI:</strong> React.js, JavaScript, HTML/CSS, WebRTC Protocols</p>
+                </div>
+                <div>
+                    <p class="mb-1"><strong>Databases:</strong> PostgreSQL, Supabase</p>
+                    <p class="mb-1"><strong>Design:</strong> Figma, Framer, MotionSite</p>
+                    <p class="mb-1"><strong>AI Workflow & DevOps:</strong> Claude, Deepseek, Docker (learning), Git & GitHub</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Honors & Extracurricular Activities -->
+        <div class="my-6">
+            <h2 class="text-base font-bold border-b-2 border-slate-300 pb-1 mb-2 tracking-wider uppercase text-slate-800">HONORS & LEADERSHIP</h2>
+            <ul class="list-disc pl-5 text-xs text-slate-700 space-y-1">
+                <li><strong>1st Place</strong> - Codeathon '26 AI Industrial Safety Challenge (competing against 35+ dev teams).</li>
+                <li><strong>1st Place</strong> - Basketball Champion at university Fresher's Sports Meet 2026.</li>
+                <li><strong>Core Organizer Member</strong> - TEDxSNPSU speaker coordination and logistics panel (selected through competitive interviews).</li>
+                <li><strong>Languages:</strong> English & Tamil (Bilingual), Kannada (Fluent), Hindi (Fluent), Urdu (Professional).</li>
+            </ul>
+        </div>
+
+        <!-- Footer watermark -->
+        <div class="mt-8 pt-4 border-t border-slate-300 text-center text-[10px] text-slate-500 italic no-print">
+            Press Ctrl+P (or Cmd+P) to save this optimized CV layout directly to a clean PDF.
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="border-t border-white/5 py-8 mt-20 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-slate-500">
+                &copy; 2026 Rania Jasmine S. Built with passion for AI & modern web frameworks.
+            </p>
+            <div class="flex gap-4 text-slate-500 text-xs">
+                <a href="#about" class="hover:text-cyber-cyan transition-colors">About</a>
+                <a href="#projects" class="hover:text-cyber-cyan transition-colors">Projects</a>
+                <a href="#bot" class="hover:text-cyber-cyan transition-colors">Chat Bot</a>
+                <a href="#contact" class="hover:text-cyber-cyan transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Portfolio Logic Scripts -->
+    <script>
+        // Toggle mobile navbar visibility
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            }
+        });
+
+        // Toggle printable PDF view state
+        function togglePrintView() {
+            const mainContent = document.getElementById('main-content');
+            const printView = document.getElementById('printable-cv-view');
+            const body = document.body;
+
+            if (printView.classList.contains('hidden')) {
+                printView.classList.remove('hidden');
+                mainContent.classList.add('hidden');
+                body.style.backgroundColor = 'white';
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            } else {
+                printView.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                body.style.backgroundColor = '#060814';
+            }
+        }
+
+        // Toggle between Portrait View and Code Visual HUD view in Hero Section
+        function toggleHeroView(mode) {
+            const portraitView = document.getElementById('hero-portrait-view');
+            const codeView = document.getElementById('hero-code-view');
+            const btnPortrait = document.getElementById('btn-hero-portrait');
+            const btnCode = document.getElementById('btn-hero-code');
+
+            if (mode === 'portrait') {
+                portraitView.classList.remove('hidden');
+                codeView.classList.add('hidden');
+                
+                // Button styles
+                btnPortrait.className = "px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all bg-cyber-cyan text-black shadow-md shadow-cyber-cyan/10";
+                btnCode.className = "px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all text-slate-400 hover:text-white";
+            } else {
+                portraitView.classList.add('hidden');
+                codeView.classList.remove('hidden');
+
+                // Button styles
+                btnPortrait.className = "px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all text-slate-400 hover:text-white";
+                btnCode.className = "px-4 py-2 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all bg-cyber-cyan text-black shadow-md shadow-cyber-cyan/10";
+            }
+        }
+
+        // Trigger canvas confetti sparkler
+        function triggerConfettiSparkle() {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#06b6d4', '#ec4899', '#8b5cf6', '#10b981']
+            });
+        }
+
+        // Filterable Technical Skill Matrix Tabs logic
+        function filterSkills(category) {
+            // Update active state of buttons
+            const buttons = document.querySelectorAll('.skill-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-cyber-cyan', 'text-black', 'border-cyber-cyan');
+                btn.classList.add('bg-slate-900', 'text-slate-300', 'border-white/5');
+            });
+
+            // Target correct event sender
+            const activeBtn = Array.from(buttons).find(b => 
+                category === 'all' ? b.textContent.includes('All') :
+                category === 'ai-data' ? b.textContent.includes('Data') :
+                category === 'backend' ? b.textContent.includes('Backend') :
+                category === 'frontend' ? b.textContent.includes('Frontend') :
+                b.textContent.includes('Workflow')
+            );
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-slate-900', 'text-slate-300', 'border-white/5');
+                activeBtn.classList.add('active', 'bg-cyber-cyan', 'text-black', 'border-cyber-cyan');
+            }
+
+            // Filter actual DOM elements
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // CONVERSATIONAL CHATBOT ENGINE LOGIC (RANIA BOT)
+        const botAnswers = {
+            hackathon: "Rania Jasmine S achieved <strong>1st Place out of 35+ teams in Codeathon '26 AI Industrial Safety</strong> with her project <strong>Gesture Shield</strong>. Using <strong>MediaPipe landmark tracking</strong> & LLaMA 3.3 via Groq, it translates warehouse gestures at under 200ms latency to broadcast emergency triggers directly over WebRTC feeds.",
+            university: "Rania is a 1st-year computer science engineering student (specializing in <strong>Artificial Intelligence & Data Science</strong>) at <strong>Sapthagiri NPS University, Bengaluru</strong>. She has an active <strong>SGPA of 8.09 / 10</strong>.",
+            basketball: "Rania is the <strong>University Basketball Champion (Fresher's Meet 2026)</strong> and an active track-and-field athletics participant. She is also a core member of <strong>TEDxSNPSU</strong>, coordinating speakers and event operations.",
+            skills: "Rania's skills are robust:<br>- <strong>Data & AI:</strong> Prophet, Pandas, MediaPipe, Llama 3.3, Streamlit<br>- <strong>Backend:</strong> Node.js, Flask, Supabase (Postgres), Socket.IO<br>- <strong>Frontend:</strong> React.js, WebRTC, Bootstrap, Figma, Framer<br>- <strong>Languages:</strong> English, Tamil, Kannada, Hindi, Urdu."
+        };
+
+        const keyMappings = [
+            { keys: ["contact", "email", "phone", "address", "location"], answer: "You can reach Rania via email at <strong>raniajasmine740@gmail.com</strong> or call <strong>+91 88843 15186</strong>. She is located in Bengaluru, Karnataka." },
+            { keys: ["mediapipe", "hand", "vision", "gesture"], answer: "She used MediaPipe (analyzing 21 key coordinate landmarks) inside her Gesture Shield translator to identify safe & hazard signals at a speedy 90% accuracy." },
+            { keys: ["prophet", "logistics", "supply", "forecast"], answer: "For the Innovitus Hackathon, Rania integrated Facebook's Prophet forecasting models with Streamlit interfaces, predicting supply delays with a low MAPE of <12%." },
+            { keys: ["react", "frontend", "weather"], answer: "Her Weather Flow solo project is a responsive, high-performance React weather analysis dashboard achieving a stellar 98% Lighthouse validation score." },
+            { keys: ["cv", "resume", "pdf", "print"], answer: "You can generate and print Rania's professional resume by clicking 'PDF CV Mode' in the upper-right corner or on the contact action card!" }
+        ];
+
+        function appendMessage(sender, text) {
+            const container = document.getElementById('chat-messages');
+            const messageRow = document.createElement('div');
+
+            if (sender === 'user') {
+                messageRow.className = "flex items-start gap-3 justify-end";
+                messageRow.innerHTML = `
+                    <div class="p-3.5 rounded-2xl rounded-tr-none bg-cyber-cyan text-xs sm:text-sm text-black font-semibold max-w-[80%]">
+                        ${text}
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs shrink-0 text-white">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                `;
+            } else {
+                messageRow.className = "flex items-start gap-3";
+                messageRow.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs shrink-0 text-cyber-cyan">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="p-3.5 rounded-2xl rounded-tl-none bg-slate-800/80 text-xs sm:text-sm text-slate-200 max-w-[80%] border border-white/5 leading-relaxed">
+                        ${text}
+                    </div>
+                `;
+            }
+
+            container.appendChild(messageRow);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Trigger bot prompt click actions
+        function sendBotPrompt(category) {
+            let promptText = "";
+            let botText = "";
+
+            switch (category) {
+                case 'hackathon':
+                    promptText = "Tell me more about her Codeathon '26 Industrial Safety Victory!";
+                    botText = botAnswers.hackathon;
+                    break;
+                case 'university':
+                    promptText = "Where does she study and what is her academic standing?";
+                    botText = botAnswers.university;
+                    break;
+                case 'basketball':
+                    promptText = "Is she active in sports or student leadership?";
+                    botText = botAnswers.basketball;
+                    break;
+                case 'skills':
+                    promptText = "What core technical skills does she specialize in?";
+                    botText = botAnswers.skills;
+                    break;
+            }
+
+            appendMessage('user', promptText);
+            setTimeout(() => {
+                appendMessage('bot', botText);
+            }, 350);
+        }
+
+        // Handle manual text search query submission
+        function handleChatSubmit(event) {
+            event.preventDefault();
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage('user', text);
+            input.value = "";
+
+            setTimeout(() => {
+                const queryLower = text.toLowerCase();
+                let chosenAnswer = "";
+
+                // Match pre-programmed keywords
+                for (let map of keyMappings) {
+                    const match = map.keys.some(k => queryLower.includes(k));
+                    if (match) {
+                        chosenAnswer = map.answer;
+                        break;
+                    }
+                }
+
+                // Fallbacks
+                if (!chosenAnswer) {
+                    if (queryLower.includes("hello") || queryLower.includes("hi")) {
+                        chosenAnswer = "Hello! Ask me about her Codeathon success, Sapthagiri NPS GPA, sports activities, or skills!";
+                    } else {
+                        chosenAnswer = `I have received your query about "${text}". While I check, feel free to contact Rania Jasmine S directly at raniajasmine740@gmail.com, or test the suggestions above!`;
+                    }
+                }
+
+                appendMessage('bot', chosenAnswer);
+            }, 400);
+        }
+    </script>
+</body>
+</html>
